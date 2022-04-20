@@ -10,7 +10,6 @@ const shipmentsRoutes = require("./routes/shipments");
 app.use(express.json());
 app.use("/shipments", shipmentsRoutes);
 
-
 /** 404 handler: matches unmatched routes; raises NotFoundError. */
 app.use(function (req, res, next) {
   throw new NotFoundError();
@@ -23,7 +22,5 @@ app.use(function (err, req, res, next) {
   if (process.env.NODE_ENV !== "test") console.error(status, err.stack);
   return res.status(status).json({ error: { message, status } });
 });
-
-
 
 module.exports = app;
